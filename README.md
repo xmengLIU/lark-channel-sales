@@ -1,9 +1,9 @@
 # 飞书渠道销售经理 · 数据研判助手
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://github.com/xmengLIU/lark-channel-sales)
+[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://github.com/xmengLIU/partner-performance-monitor)
 
-基于 OpenClaw Skill 框架的飞书渠道销售经理专属 AI 数据研判助手。自动分析部门每周统一导出的渠道伙伴大盘数据表，完成劣质伙伴分级筛查、全局 KPI 进度缺口监测和伙伴趋势追踪。
+基于 OpenClaw Skill 框架的飞书渠道销售经理专属 AI 数据研判助手。自动分析部门每周统一导出的渠道伙伴大盘数据表，完成业绩薄弱伙伴分级筛查、全局 KPI 进度缺口监测和伙伴趋势追踪。
 
 > **核心原则：只从上传的表格取数，不自创数据，所有结论完全基于原始文件。**
 
@@ -11,7 +11,7 @@
 
 ## 核心功能
 
-### 模块 1：周度伙伴劣质业绩三级分级诊断
+### 模块 1：周度伙伴业绩偏弱三级分级诊断
 
 基于中位数基准，对所有渠道伙伴自动进行三级分级：
 
@@ -21,16 +21,16 @@
 
 每个分级附带**统一问题总结**和**按紧急度排序的跟进优先级建议**。
 
-### 模块 1B：劣质伙伴周度变化趋势追踪
+### 模块 1B：业绩薄弱伙伴周度变化趋势追踪
 
 需至少 2 周历史数据。对每个问题伙伴做纵向对比，归入四类趋势：
 
 | 趋势 | 判定逻辑 |
 |------|---------|
 | 🔻 持续恶化 | 连续多周等级下降或核心指标持续下滑 |
-| ⚡ 波动不稳定 | 在正常与劣质之间反复横跳 |
+| ⚡ 波动不稳定 | 在正常与薄弱之间反复横跳 |
 | 🟢 改善回暖 | 等级提升且核心指标有实质改善 |
-| 🔒 顽固劣质 | 连续 3 周+ 处于高危/预警，干预无效 |
+| 🔒 长期薄弱 | 连续 3 周+ 处于高危/预警，干预无效 |
 
 ### 模块 2：全局 KPI 实时缺口监测
 
@@ -51,10 +51,10 @@
 
 ```bash
 # 克隆仓库到任意位置
-git clone https://github.com/xmengLIU/lark-channel-sales.git
+git clone https://github.com/xmengLIU/partner-performance-monitor.git
 
 # 将 Skill 链接到 OpenClaw
-cp -r lark-channel-sales/skills/lark-channel-sales ~/.openclaw/skills/
+cp -r partner-performance-monitor/skills/partner-performance-monitor ~/.openclaw/skills/
 ```
 
 ### 使用
@@ -68,7 +68,7 @@ cp -r lark-channel-sales/skills/lark-channel-sales ~/.openclaw/skills/
 | `查看当前KPI缺口` | KPI 完成率 + 缺口 + 风险判定 |
 | `列出高危问题伙伴` | 精简高危名单 |
 | `本周业绩复盘总结` | 可直接复制到周报的复盘模板 |
-| `查看劣质伙伴趋势` | 四类趋势追踪报告 |
+| `查看异常伙伴趋势` | 四类趋势追踪报告 |
 | `KPI周度进度对比` | 本周 vs 上周环比分析 |
 
 首次使用时建议用 `data/` 目录下的 demo 数据测试：
@@ -84,13 +84,13 @@ data/demo_W4_2026-05-15_to_2026-05-22.csv
 ## 项目结构
 
 ```
-lark-channel-sales/
+partner-performance-monitor/
 ├── README.md                           # 项目说明
 ├── LICENSE                             # MIT 协议
 ├── OPENCLAW.md                         # OpenClaw 项目配置
 ├── generate_demo_data.py               # Demo 数据生成脚本
 ├── skills/
-│   └── lark-channel-sales/
+│   └── partner-performance-monitor/
 │       ├── SKILL.md                    # Skill 核心逻辑（18KB）
 │       └── example_template.csv        # 单周数据模板
 └── data/                               # Demo 数据（4周 × 20家）
@@ -110,7 +110,7 @@ lark-channel-sales/
 | 模式 | 伙伴 | W1 → W4 轨迹 |
 |------|------|-------------|
 | 🟢 稳定优秀 | A, D, H, L, N | 持续高产出 |
-| 🔒 顽固劣质 | B, G, J, Q | 连续 4 周零/极低产出 |
+| 🔒 长期薄弱 | B, G, J, Q | 连续 4 周零/极低产出 |
 | 🔻 持续恶化 | E, M, P | 正常 → 观察 → 预警 → 高危 |
 | ⚡ 波动不稳定 | F, I, S | 正常与高危间反复横跳 |
 | 🟢 改善回暖 | K, O, R | 高危 → 预警 → 观察 → 正常 |
