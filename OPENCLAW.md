@@ -6,7 +6,7 @@
 ## 项目结构
 ```
 Feishu_skill/
-├── CLAUDE.md                          # 项目说明（本文件）
+├── OPENCLAW.md                        # 项目说明（本文件）
 ├── generate_demo_data.py              # Demo 数据生成脚本
 ├── skills/
 │   └── lark-channel-sales/

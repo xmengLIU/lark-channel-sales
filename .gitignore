@@ -24,8 +24,8 @@ venv/
 Thumbs.db
 Desktop.ini
 
-# Claude
-.claude/
+# OpenClaw
+.openclaw/
 
 # Jupyter
 .ipynb_checkpoints/

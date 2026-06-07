@@ -1,9 +1,9 @@
 # 飞书渠道销售经理 · 数据研判助手
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-blue)](https://claude.ai/code)
+[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://github.com/xmengLIU/lark-channel-sales)
 
-基于 Claude Code Skill 框架的飞书渠道销售经理专属 AI 数据研判助手。自动分析部门每周统一导出的渠道伙伴大盘数据表，完成劣质伙伴分级筛查、全局 KPI 进度缺口监测和伙伴趋势追踪。
+基于 OpenClaw Skill 框架的飞书渠道销售经理专属 AI 数据研判助手。自动分析部门每周统一导出的渠道伙伴大盘数据表，完成劣质伙伴分级筛查、全局 KPI 进度缺口监测和伙伴趋势追踪。
 
 > **核心原则：只从上传的表格取数，不自创数据，所有结论完全基于原始文件。**
 
@@ -45,7 +45,7 @@
 
 ### 前置要求
 
-- [Claude Code](https://claude.ai/code)（VS Code / JetBrains 扩展 或 CLI）
+- OpenClaw（VS Code / JetBrains 扩展 或 CLI）
 
 ### 安装
 
@@ -53,13 +53,13 @@
 # 克隆仓库到任意位置
 git clone https://github.com/xmengLIU/lark-channel-sales.git
 
-# 将 Skill 链接到 Claude Code
-cp -r lark-channel-sales/skills/lark-channel-sales ~/.claude/skills/
+# 将 Skill 链接到 OpenClaw
+cp -r lark-channel-sales/skills/lark-channel-sales ~/.openclaw/skills/
 ```
 
 ### 使用
 
-1. **上传数据**：在 Claude Code 对话中拖入本周渠道伙伴大盘表（`.xlsx` / `.csv`）
+1. **上传数据**：在 OpenClaw 对话中拖入本周渠道伙伴大盘表（`.xlsx` / `.csv`）
 2. **说一句指令**：
 
 | 指令 | 输出 |
@@ -74,7 +74,7 @@ cp -r lark-channel-sales/skills/lark-channel-sales ~/.claude/skills/
 首次使用时建议用 `data/` 目录下的 demo 数据测试：
 
 ```bash
-# 在 Claude Code 中上传并执行
+# 在 OpenClaw 中上传并执行
 data/demo_W4_2026-05-15_to_2026-05-22.csv
 # 然后输入：分析本周伙伴数据
 ```
@@ -87,7 +87,7 @@ data/demo_W4_2026-05-15_to_2026-05-22.csv
 lark-channel-sales/
 ├── README.md                           # 项目说明
 ├── LICENSE                             # MIT 协议
-├── CLAUDE.md                           # Claude Code 项目配置
+├── OPENCLAW.md                         # OpenClaw 项目配置
 ├── generate_demo_data.py               # Demo 数据生成脚本
 ├── skills/
 │   └── lark-channel-sales/
